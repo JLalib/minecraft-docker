@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  minecraft:
+    image: itzg/minecraft-server:latest
+    container_name: minecraft-server
+    ports:
+      - "25565:25565"
+    environment:
+      EULA: "TRUE"
+      TYPE: "VANILLA"
+      VERSION: "LATEST"
+      MEMORY: "2G"
+      SERVER_NAME: "Mi Servidor Docker"
+      MOTD: "Bienvenido a mi servidor Minecraft"
+      MAX_PLAYERS: 20
+      DIFFICULTY: "normal"
+      MODE: "survival"
+      VIEW_DISTANCE: 10
+    volumes:
+      - ./data:/data
+    restart: unless-stopped
+    tty: true
+    stdin_open: true
